@@ -130,8 +130,8 @@ export default class ActionSheet extends Component {
       }
       let scrollOffset = gestureEnabled
         ? this.customComponentHeight * initialOffsetFromBottom +
-          addFactor +
-          extraScroll
+        addFactor +
+        extraScroll
         : this.customComponentHeight + addFactor + extraScroll;
 
       this.scrollViewRef.current.scrollTo({
@@ -279,6 +279,7 @@ export default class ActionSheet extends Component {
               overScrollMode="always"
               onScroll={this._onScroll}
               style={styles.scrollView}
+              keyboardShouldPersistTaps={true}
             >
               <Animated.View
                 style={{
@@ -330,13 +331,13 @@ export default class ActionSheet extends Component {
                   CustomHeaderComponent ? (
                     CustomHeaderComponent
                   ) : (
-                    <View
-                      style={[
-                        styles.indicator,
-                        { backgroundColor: indicatorColor }
-                      ]}
-                    />
-                  )
+                      <View
+                        style={[
+                          styles.indicator,
+                          { backgroundColor: indicatorColor }
+                        ]}
+                      />
+                    )
                 ) : null}
 
                 {children}
@@ -387,8 +388,8 @@ ActionSheet.defaultProps = {
   defaultOverlayOpacity: 0.3,
   overlayColor: "black",
   closeOnTouchBackdrop: true,
-  onClose: () => {},
-  onOpen: () => {}
+  onClose: () => { },
+  onOpen: () => { }
 };
 ActionSheet.propTypes = {
   children: PropTypes.node,
